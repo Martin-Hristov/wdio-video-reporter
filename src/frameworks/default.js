@@ -54,7 +54,7 @@ export default {
   onTestStart (test) {
     helpers.debugLog(`\n\n--- New test: ${test.title} ---\n`);
     this.testnameStructure.push(test.title.replace(/ /g, '-'));
-    const fullname = this.testnameStructure.slice(1).reduce((cur, acc) => cur + '--' + acc, this.testnameStructure[0]);
+    const fullname = this.testnameStructure.slice(1).reduce((cur, acc) => cur + '--' + cur === acc?'':acc, this.testnameStructure[0]);
 
     let browserName = 'browser';
     const capabilities = helpers.getCurrentCapabilities(this);
